@@ -16,6 +16,7 @@ SDL_Renderer* renderer;
 SDL_Event Event;
 SDL_Texture *background;
 SDL_Rect rect_background;
+int opcion=0;
 
 void loopJuego()
 {
@@ -27,7 +28,6 @@ void loopJuego()
     rect_background.y = 0;
     rect_background.w = w;
     rect_background.h = h;
-
 
     list<Personaje*> personajes;
     personajes.push_back(new Sho(renderer,&personajes));
@@ -54,18 +54,18 @@ void loopJuego()
             }
         }
 
-        if(frame%1500==0)
-        {
-            personajes.push_back(new EnemigoAzul(renderer,&personajes));
-            personajes.push_back(new EnemigoVerde(renderer,&personajes));
-        }
+//        if(frame%1500==0)
+//        {
+//            personajes.push_back(new EnemigoAzul(renderer,&personajes));
+//            personajes.push_back(new EnemigoVerde(renderer,&personajes));
+//        }
 
         for(list<Personaje*>::iterator p=personajes.begin();
                 p!=personajes.end();
                 p++)
             (*p)->act();
 
-        SDL_SetRenderDrawColor(renderer, 255, 100, 0, 255);
+        //SDL_SetRenderDrawColor(renderer, 255, 100, 0, 255);
 
         // Clear the entire screen to our selected color.
         SDL_RenderClear(renderer);
@@ -128,15 +128,48 @@ public:
     }
 };
 
+void Instrucciones1()
+{
+    while(true)
+    {
+        while(SDL_PollEvent(&Event))
+        {
+            if(Event.type == SDL_QUIT)
+            {
+                exit(0);
+            }
+            if(Event.type == SDL_KEYDOWN)
+            {
+                if(Event.key.keysym.sym == SDLK_ESCAPE)
+                {
+                    return;
+                }
+            }
+        }
+        opcion = 2;
+        int w=0,h=0;
+        SDL_Texture *instrucciones = IMG_LoadTexture(renderer,"Instrucciones.png");
+        SDL_Rect instru;
+        SDL_QueryTexture(instrucciones, NULL, NULL, &w, &h);
+        instru.x = 0;
+        instru.y = 0;
+        instru.w = w;
+        instru.h = h;
+        SDL_RenderClear(renderer);
+        SDL_RenderCopy(renderer,instrucciones,NULL,&instru);
+        SDL_RenderPresent(renderer);
+    }
+}
+
 void mainMenu()
 {
-    int opcion = 1;
-    SDL_Texture *menu_fondo = IMG_LoadTexture(renderer,"menu_fondo.png");
+    opcion = 1;
+    SDL_Texture *menu_fondo = IMG_LoadTexture(renderer,"MenuPrincipal.png");
     SDL_Rect menu_rect;
     vector<MenuButton*>buttons;
-    buttons.push_back(new MenuButton("button1_selected.png","button1_unselected.png",300,300));
-    buttons.push_back(new MenuButton("button2_selected.png","button2_unselected.png",300,400));
-    buttons.push_back(new MenuButton("button3_selected.png","button3_unselected.png",300,500));
+    buttons.push_back(new MenuButton("Boton1.png","Boton1-1.png",350,250));
+    buttons.push_back(new MenuButton("Boton2.png","Boton2-2.png",350,400));
+    buttons.push_back(new MenuButton("Boton3.png","Boton3-3.png",350,550));
     SDL_QueryTexture(menu_fondo, NULL, NULL, &menu_rect.w, &menu_rect.h);
     menu_rect.x = 0;
     menu_rect.y = 0;
@@ -151,9 +184,13 @@ void mainMenu()
             }
             if(Event.type == SDL_KEYDOWN)
             {
-                if(Event.key.keysym.sym == SDLK_2)
+                if(Event.key.keysym.sym == SDLK_3)
                 {
                     exit(0);
+                }
+                if(Event.key.keysym.sym == SDLK_2)
+                {
+                    Instrucciones1();
                 }
                 if(Event.key.keysym.sym == SDLK_1)
                 {
@@ -183,7 +220,7 @@ void mainMenu()
                             loopJuego();
                         break;
                         case 2:
-
+                            Instrucciones1();
                         break;
                         case 3:
                             exit(0);

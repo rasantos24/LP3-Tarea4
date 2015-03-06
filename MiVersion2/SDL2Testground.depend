@@ -650,7 +650,7 @@
 1424667977 c:\users\rafael\desktop\rasr-24\tareas u\lab programacion iii\miversion2\enemigoverde.h
 	"Enemigo.h"
 
-1425416753 source:c:\users\rafael\desktop\rasr-24\tareas u\lab programacion iii\miversion2\main.cpp
+1425610802 source:c:\users\rafael\desktop\rasr-24\tareas u\lab programacion iii\miversion2\main.cpp
 	<stdlib.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -678,4 +678,57 @@
 	<list>
 	<iostream>
 	<map>
+
+1424650715 source:c:\users\rafael\tareas\miversion2\enemigo.cpp
+	"Enemigo.h"
+
+1424650715 c:\users\rafael\tareas\miversion2\enemigo.h
+	"Personaje.h"
+
+1425058013 c:\users\rafael\tareas\miversion2\personaje.h
+	<SDL.h>
+	<SDL_image.h>
+	<vector>
+	<list>
+	<iostream>
+	<map>
+
+1424971859 source:c:\users\rafael\tareas\miversion2\enemigoazul.cpp
+	"EnemigoAzul.h"
+
+1424667977 c:\users\rafael\tareas\miversion2\enemigoazul.h
+	"Enemigo.h"
+
+1425063997 source:c:\users\rafael\tareas\miversion2\enemigorojo.cpp
+	"EnemigoRojo.h"
+
+1424662213 c:\users\rafael\tareas\miversion2\enemigorojo.h
+	"Enemigo.h"
+
+1424900761 source:c:\users\rafael\tareas\miversion2\enemigoverde.cpp
+	"EnemigoVerde.h"
+
+1424667977 c:\users\rafael\tareas\miversion2\enemigoverde.h
+	"Enemigo.h"
+
+1425610958 source:c:\users\rafael\tareas\miversion2\main.cpp
+	<stdlib.h>
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<vector>
+	<list>
+	"EnemigoAzul.h"
+	"EnemigoVerde.h"
+	"EnemigoRojo.h"
+	"Sho.h"
+
+1424714377 c:\users\rafael\tareas\miversion2\sho.h
+	"Personaje.h"
+
+1425061290 source:c:\users\rafael\tareas\miversion2\personaje.cpp
+	"Personaje.h"
+
+1425050777 source:c:\users\rafael\tareas\miversion2\sho.cpp
+	"Sho.h"
 
